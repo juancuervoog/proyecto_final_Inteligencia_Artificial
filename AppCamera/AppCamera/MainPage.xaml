@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppCamera.MainPage">
+
+    <ScrollView>
+
+        <StackLayout>
+            <!-- Place new controls here -->
+            <Label Text="Extraer los medicamentos de tu fórmula médica SURA." 
+           HorizontalOptions="Center"
+           VerticalOptions="Start" />
+
+            <Image x:Name="PhotoImage" />
+            <Button x:Name="CameraButton" Text="Tomar foto"  />
+
+            <Button x:Name="TagButton" Text="Obtener medicamentos" Clicked="TagButton_Clicked" />
+
+            <Label 
+            x:Name="mensaje"
+            Text="" 
+            HorizontalOptions="Center"
+            FontAttributes="Bold"
+             />
+
+            <ListView x:Name="lstMedicamentos" HasUnevenRows="True" VerticalScrollBarVisibility="Default" ItemSelected="lstMedicamentos_ItemSelected" >
+                <ListView.ItemTemplate >
+                    <!-- Lista de items -->
+                    <DataTemplate >
+                        <!-- Mostrar la informacion -->
+                        <ViewCell>
+                            <!-- Celdas -->
+                            <StackLayout >
+                                <Label 
+                                       Text="{Binding posicion, StringFormat='Medicamento #{0:F0}:'}" FontAttributes="Bold">
+                                </Label>
+                                <Label x:Name="lblnombre" Text="{Binding nombre}" HorizontalOptions="Center"></Label>
+                                <Label Text="Dosificación: " FontAttributes="Bold"></Label>
+                                <Label Text="{Binding dosificacion}" HorizontalOptions="Center"></Label>
+                                <Label Text="Cantidad: " FontAttributes="Bold"></Label>
+                                <Label Text="{Binding cantidad}" HorizontalOptions="Center"></Label>
+                                <Label Text="Recomendación: " FontAttributes="Bold"></Label>
+                                <Label Text="{Binding recomendacion}" HorizontalOptions="Center"></Label>
+                                <Label Text=""></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
