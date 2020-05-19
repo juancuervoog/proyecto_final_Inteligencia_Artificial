@@ -21,7 +21,7 @@ namespace AppCamera
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        private const string subscriptionKey = "d2ec2af794914d178210af3a64e021be";
+        private const string subscriptionKey = "345db4b933bf41dea5b44d77ce8dac6f";
         private byte[] imageArray = null;
         private IList<Medicamento> listaMedicamentos = new List<Medicamento>();
         public MainPage()
@@ -280,7 +280,7 @@ namespace AppCamera
         private async void leerMedicamento(Medicamento medicamento)
         {
 
-            //implementar el spechh
+            //implementar el spechh no quiero que se vea en master
             var text = "El nombre del medicamento: " + medicamento.nombre + "la dosificacion es: " + medicamento.dosificacion
             + "y tiene " + medicamento.cantidad + "de este medicamento";
 
