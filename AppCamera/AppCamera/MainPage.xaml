@@ -8,14 +8,15 @@
 
     <ScrollView>
 
-        <StackLayout>
+        <StackLayout Margin="15,15,15,15"
+                 x:Name="stackLayout">
             <!-- Place new controls here -->
             <Label Text="Extraer los medicamentos de tu fórmula médica SURA." 
            HorizontalOptions="Center"
            VerticalOptions="Start" />
 
             <Image x:Name="PhotoImage" />
-            <Button x:Name="CameraButton" Text="Tomar foto"  />
+            <Button x:Name="CameraButton" Text="Tomar foto" />
 
             <Button x:Name="TagButton" Text="Obtener medicamentos" Clicked="TagButton_Clicked" />
 
@@ -33,7 +34,7 @@
                         <!-- Mostrar la informacion -->
                         <ViewCell>
                             <!-- Celdas -->
-                            <StackLayout >
+                            <StackLayout>
                                 <Label 
                                        Text="{Binding posicion, StringFormat='Medicamento #{0:F0}:'}" FontAttributes="Bold">
                                 </Label>
@@ -50,7 +51,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
 
         </StackLayout>
     </ScrollView>

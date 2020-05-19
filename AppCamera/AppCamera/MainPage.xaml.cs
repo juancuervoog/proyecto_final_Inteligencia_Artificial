@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using Plugin.TextToSpeech;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -245,7 +246,6 @@ namespace AppCamera
             return listaMedicamentos;
         }
 
-
         private async void lstMedicamentos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var index = e.SelectedItemIndex;
@@ -279,18 +279,22 @@ namespace AppCamera
         }
         private async void leerMedicamento(Medicamento medicamento)
         {
-            //implementar el spechh
-            await DisplayAlert("¡specc!", "el medicamento es" + medicamento.nombre, "OK");
 
-            
+            //implementar el spechh
+            var text = "El nombre del medicamento: " + medicamento.nombre + "la dosificacion es: " + medicamento.dosificacion
+            + "y tiene " + medicamento.cantidad + "de este medicamento";
+
+
+
+            await CrossTextToSpeech.Current.Speak(text, pitch: 1, speakRate: 1, volume: 1);
+
+
         }
         private async void generarRecordatorio(Medicamento medicamento)
         {
-            //implementar el spechh
+            //implementar el recordatorio
             await DisplayAlert("¡recorda!", "el medicamento es" + medicamento.nombre, "OK");
         }
-
-
 
     }
     //------------------------clases------------------
