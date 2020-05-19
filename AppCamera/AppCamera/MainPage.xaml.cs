@@ -284,16 +284,14 @@ namespace AppCamera
             var text = "El nombre del medicamento: " + medicamento.nombre + "la dosificacion es: " + medicamento.dosificacion
             + "y tiene " + medicamento.cantidad + "de este medicamento";
 
-
-
             await CrossTextToSpeech.Current.Speak(text, pitch: 1, speakRate: 1, volume: 1);
-
 
         }
         private async void generarRecordatorio(Medicamento medicamento)
         {
             //implementar el recordatorio
             await DisplayAlert("¡recorda!", "el medicamento es" + medicamento.nombre, "OK");
+            await Navigation.PushAsync(new LocalNotificationPage(medicamento));
         }
 
     }
