@@ -20,8 +20,8 @@ namespace AppCamera
             BindingContext = new LocalNotificationPageViewModel(medicamento);
     
 
-            txtNoti.Text = "Vas a generar un recordatorio para el medicamento: "+ medicamento.nombre;
-            txtDosificacion.Text = "Recuerda que debes tomar: " + medicamento.dosificacion;
+            txtNoti.Text = "Va a generar un recordatorio para el medicamento: "+ medicamento.nombre;
+            txtDosificacion.Text = "Recuerde que debe tomar: " + medicamento.dosificacion;
             string frecuencia = ""; //1 - 12  - 8 
             string tiempo = ""; //dia - horas - horas
             string[] palabras = new string[] { "" };

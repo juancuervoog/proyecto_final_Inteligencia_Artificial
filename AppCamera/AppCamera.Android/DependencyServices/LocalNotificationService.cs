@@ -33,13 +33,38 @@ namespace AppCamera.DependencyServices.Droid
 
              CreateNotificationChannel();
             //long repeateDay = 1000 * 60 * 60 * 24;    
-            //long repeateForMinute = 60000; // In milliseconds 
-            long repeateFor12Minute = 720000; //cada 12 minutos
+            long repeateForMinute = 60000; // In milliseconds 
+            long repiteDiario = 1000 * 60 * 60 * 24; //Cada dia
+            long repite12Horas = 1000 * 60 * 60 * 12; //cada 12 horas
+            long tiempoRepeticion = 0;
+
+
+            if (System.String.Equals(tiempo,"HORAS"))
+            {
+                if (System.String.Equals(frecuencia, "24"))
+                {
+                    // tiempoRepeticion = repiteDiario;
+                    tiempoRepeticion = repeateForMinute * 2;
+                }
+                if (System.String.Equals(frecuencia, "12"))
+                {
+                    // tiempoRepeticion = repite12Horas;
+                    tiempoRepeticion = repeateForMinute;
+                }
+            }
+            if (System.String.Equals(tiempo, "DIAS"))
+            {
+                tiempoRepeticion = repeateForMinute * 2;
+              //  tiempoRepeticion = repiteDiario * Long.ParseLong(frecuencia);
+            }
+
+
+
             long totalMilliSeconds = (long)(notifyTime.ToUniversalTime() - _jan1st1970).TotalMilliseconds;
             if (totalMilliSeconds < JavaSystem.CurrentTimeMillis())
             {
                 //totalMilliSeconds = totalMilliSeconds + repeateForMinute;
-                totalMilliSeconds = totalMilliSeconds + repeateFor12Minute;
+                totalMilliSeconds = totalMilliSeconds + tiempoRepeticion;
             }
 
             var intent = CreateIntent(id);
@@ -67,7 +92,7 @@ namespace AppCamera.DependencyServices.Droid
             var pendingIntent = PendingIntent.GetBroadcast(Application.Context, Convert.ToInt32(_randomNumber), intent, PendingIntentFlags.Immutable);
             var alarmManager = GetAlarmManager();
            // alarmManager.SetRepeating(AlarmType.RtcWakeup, totalMilliSeconds, repeateForMinute, pendingIntent); //cada 1 minutoo
-            alarmManager.SetRepeating(AlarmType.RtcWakeup, totalMilliSeconds, repeateFor12Minute, pendingIntent); //cada 12 minutos
+            alarmManager.SetRepeating(AlarmType.RtcWakeup, totalMilliSeconds, tiempoRepeticion, pendingIntent); //cada 12 minutos
 
         }
 

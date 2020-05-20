@@ -103,7 +103,7 @@ namespace AppCamera
 
             if (response.StatusCode == System.Net.HttpStatusCode.Accepted) //lee la fotogafia
             {
-                mensaje.Text = "HECHO!!!";
+                mensaje.Text = "¡HECHO!";
 
                 string strUrl = response.Headers.GetValues("Operation-Location").First();
 
@@ -235,7 +235,7 @@ namespace AppCamera
 
             if(listaMedicamentos.Count()>0){
                 DisplayAlert("¡Análisis finalizado!", "Hemos detectado " + listaMedicamentos.Count() + " medicamentos en tu formula médica.", "OK");
-                mensaje.Text = "Tu lista de medicamentos es: ";
+                mensaje.Text = "Tu lista de medicamentos es: Selecciona uno para ver más opciones.";
             }
             else
             {
@@ -281,10 +281,10 @@ namespace AppCamera
         {
 
             //implementar el spechh no quiero que se vea en master
-            var text = "El nombre del medicamento: " + medicamento.nombre + "la dosificacion es: " + medicamento.dosificacion
+            var text = "El nombre del medicamento es: " + medicamento.nombre + "la dosificacion es: " + medicamento.dosificacion
             + "y tiene " + medicamento.cantidad + "de este medicamento";
 
-            await CrossTextToSpeech.Current.Speak(text, pitch: 1, speakRate: 1, volume: 1);
+            await CrossTextToSpeech.Current.Speak(text, pitch: (float)0.8, speakRate: 1, volume: 2);
 
         }
         private async void generarRecordatorio(Medicamento medicamento)

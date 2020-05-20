@@ -6,53 +6,57 @@
              mc:Ignorable="d"
              x:Class="AppCamera.MainPage"
              Title="Proyecto final IA" >
+    <ContentPage.Content>
+        <ScrollView>
 
-    <ScrollView>
-
-        <StackLayout Margin="15,15,15,15"
+            <StackLayout Margin="15,15,15,15"
                  x:Name="stackLayout">
-            <!-- Place new controls here -->
-            <Label Text="Extraer los medicamentos de tu fórmula médica SURA." 
+                <!-- Place new controls here -->
+                <Label Text="Extraer los medicamentos de tu fórmula médica SURA." 
            HorizontalOptions="Center"
-           VerticalOptions="Start" />
+           VerticalOptions="Start" 
+                   FontAttributes="Bold"
+                   FontSize="20"/>
 
-            <Image x:Name="PhotoImage" />
-            <Button x:Name="CameraButton" Text="Tomar foto" />
+                <Image x:Name="PhotoImage" />
+                <Button x:Name="CameraButton" Text="Tomar foto" FontSize="20" FontAttributes="Bold" BorderRadius="15" />
 
-            <Button x:Name="TagButton" Text="Obtener medicamentos" Clicked="TagButton_Clicked" />
+                <Button x:Name="TagButton" Text="Obtener medicamentos" Clicked="TagButton_Clicked" FontSize="20" FontAttributes="Bold" BorderRadius="15"/>
 
-            <Label 
+                <Label 
             x:Name="mensaje"
             Text="" 
             HorizontalOptions="Center"
             FontAttributes="Bold"
-             />
+            FontSize="20" />
 
-            <ListView x:Name="lstMedicamentos" HasUnevenRows="True" VerticalScrollBarVisibility="Default" ItemSelected="lstMedicamentos_ItemSelected" >
-                <ListView.ItemTemplate >
-                    <!-- Lista de items -->
-                    <DataTemplate >
-                        <!-- Mostrar la informacion -->
-                        <ViewCell>
-                            <!-- Celdas -->
-                            <StackLayout>
-                                <Label 
-                                       Text="{Binding posicion, StringFormat='Medicamento #{0:F0}:'}" FontAttributes="Bold">
-                                </Label>
-                                <Label x:Name="lblnombre" Text="{Binding nombre}" HorizontalOptions="Center"></Label>
-                                <Label Text="Dosificación: " FontAttributes="Bold"></Label>
-                                <Label Text="{Binding dosificacion}" HorizontalOptions="Center"></Label>
-                                <Label Text="Cantidad: " FontAttributes="Bold"></Label>
-                                <Label Text="{Binding cantidad}" HorizontalOptions="Center"></Label>
-                                <Label Text="Recomendación: " FontAttributes="Bold"></Label>
-                                <Label Text="{Binding recomendacion}" HorizontalOptions="Center"></Label>
-                                <Label Text=""></Label>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                <ListView x:Name="lstMedicamentos" HasUnevenRows="True" VerticalScrollBarVisibility="Default" ItemSelected="lstMedicamentos_ItemSelected" >
+                    <ListView.ItemTemplate >
+                        <!-- Lista de items -->
+                        <DataTemplate >
+                            <!-- Mostrar la informacion -->
+                            <ViewCell>
+                                <!-- Celdas -->
+                                <StackLayout>
+                                    <Label Text=""></Label>
+                                    <Label 
+                                       Text="{Binding posicion, StringFormat='Medicamento #{0:F0}:'}" FontAttributes="Bold" FontSize="21">
+                                    </Label>
+                                    <Label x:Name="lblnombre" Text="{Binding nombre}" HorizontalOptions="Center" FontSize="20"></Label>
+                                    <Label Text="Dosificación: " FontAttributes="Bold" FontSize="21" ></Label>
+                                    <Label Text="{Binding dosificacion}" HorizontalOptions="Center" FontSize="20"></Label>
+                                    <Label Text="Cantidad: " FontAttributes="Bold" FontSize="21"></Label>
+                                    <Label Text="{Binding cantidad}" HorizontalOptions="Center" FontSize="20"></Label>
+                                    <Label Text="Recomendación: " FontAttributes="Bold" FontSize="21"></Label>
+                                    <Label Text="{Binding recomendacion}" HorizontalOptions="Center" FontSize="20"></Label>
+                                    <Label Text=""></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-        </StackLayout>
-    </ScrollView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>
