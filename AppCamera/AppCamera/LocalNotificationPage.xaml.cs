@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
-
+using AppCamera.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,6 +16,9 @@ namespace AppCamera
         public LocalNotificationPage(Medicamento medicamento)
         {
             InitializeComponent();
+
+            BindingContext = new LocalNotificationPageViewModel(medicamento);
+    
 
             txtNoti.Text = "Vas a generar un recordatorio para el medicamento: "+ medicamento.nombre;
             txtDosificacion.Text = "Recuerda que debes tomar: " + medicamento.dosificacion;

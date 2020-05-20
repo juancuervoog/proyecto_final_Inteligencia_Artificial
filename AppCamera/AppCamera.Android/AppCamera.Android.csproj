@@ -64,6 +64,7 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DependencyServices\LocalNotificationService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,7 +93,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable\" />
+    <AndroidResource Include="Resources\Drawable\xamagonBlue.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AppCamera\AppCamera.csproj">
