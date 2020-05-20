@@ -43,19 +43,19 @@ namespace AppCamera.DependencyServices.Droid
             {
                 if (System.String.Equals(frecuencia, "24"))
                 {
-                    // tiempoRepeticion = repiteDiario;
-                    tiempoRepeticion = repeateForMinute * 2;
+                    tiempoRepeticion = repiteDiario;
+                    //tiempoRepeticion = repeateForMinute * 2;
                 }
                 if (System.String.Equals(frecuencia, "12"))
                 {
-                    // tiempoRepeticion = repite12Horas;
-                    tiempoRepeticion = repeateForMinute;
+                     tiempoRepeticion = repite12Horas;
+                    //tiempoRepeticion = repeateForMinute;
                 }
             }
             if (System.String.Equals(tiempo, "DIAS"))
             {
-                tiempoRepeticion = repeateForMinute * 2;
-              //  tiempoRepeticion = repiteDiario * Long.ParseLong(frecuencia);
+                //tiempoRepeticion = repeateForMinute * 2;
+               tiempoRepeticion = repiteDiario * Long.ParseLong(frecuencia);
             }
 
 
